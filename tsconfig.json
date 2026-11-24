@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "CommonJS",
+    "moduleResolution": "Node",
+    "lib": [
+      "ES2022",
+      "DOM",
+      "DOM.Iterable"
+    ],
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "outDir": "dist",
+    "types": [
+      "node",
+      "vscode",
+      "chrome"
+    ]
+  },
+  "include": [
+    "src/**/*.ts",
+    "shared/**/*.ts",
+    "chrome/**/*.ts",
+    "test/**/*.ts"
+  ]
+}

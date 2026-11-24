@@ -1,0 +1,88 @@
+{
+  "name": "websource-sync",
+  "displayName": "WebSource Sync",
+  "description": "Review frontend snapshots captured over HTTP, Playwright, or the companion Chrome extension, then selectively commit to Git.",
+  "version": "0.1.0",
+  "publisher": "websource-sync",
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.95.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "main": "./dist/extension.js",
+  "activationEvents": [
+    "onView:websource.sidebar"
+  ],
+  "extensionKind": [
+    "ui"
+  ],
+  "capabilities": {
+    "untrustedWorkspaces": {
+      "supported": false
+    },
+    "virtualWorkspaces": false
+  },
+  "contributes": {
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "websource",
+          "title": "WebSource Sync",
+          "icon": "media/icon.svg"
+        }
+      ]
+    },
+    "views": {
+      "websource": [
+        {
+          "type": "webview",
+          "id": "websource.sidebar",
+          "name": "Capture & Review"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "websource.open",
+        "title": "WebSource Sync: Open"
+      },
+      {
+        "command": "websource.import",
+        "title": "WebSource Sync: Import Chrome Capture"
+      }
+    ]
+  },
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "check": "tsc --noEmit",
+    "test": "tsx --test test/*.test.ts",
+    "package": "npm run build && vsce package --no-dependencies --out artifacts/websource-sync-0.1.0.vsix",
+    "package:chrome": "node scripts/package-chrome.mjs",
+    "browser:install": "playwright install chromium",
+    "vscode:prepublish": "npm run build",
+    "test:browser": "tsx test/browser.e2e.ts",
+    "test:playwright": "tsx test/playwright.e2e.ts"
+  },
+  "dependencies": {
+    "cheerio": "^1.0.0",
+    "csv-parse": "^5.6.0",
+    "playwright": "^1.51.0",
+    "prettier": "^3.5.0",
+    "simple-git": "^3.27.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "@types/vscode": "^1.95.0",
+    "@types/chrome": "^0.0.305",
+    "@vscode/vsce": "^3.2.0",
+    "esbuild": "^0.25.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.7.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/stevie1mat/SourceSnap.git"
+  }
+}

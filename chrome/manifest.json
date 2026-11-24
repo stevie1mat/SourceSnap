@@ -1,0 +1,26 @@
+{
+  "manifest_version": 3,
+  "name": "WebSource Sync Companion",
+  "version": "0.1.0",
+  "description": "Capture an authorized, already-open frontend page for local review in WebSource Sync for VS Code.",
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "storage",
+    "downloads"
+  ],
+  "host_permissions": [
+    "http://127.0.0.1/*"
+  ],
+  "optional_host_permissions": [
+    "https://*/*",
+    "http://*/*"
+  ],
+  "action": {
+    "default_title": "Open WebSource Sync capture"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "minimum_chrome_version": "120"
+}

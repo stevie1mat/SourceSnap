@@ -1,0 +1,37 @@
+{
+  "version": 1,
+  "destination": "websource-captures",
+  "activeProfile": "Donation",
+  "profiles": [
+    {
+      "name": "Donation",
+      "targets": [
+        {
+          "url": "https://secure.unicef.ca/page/201629/donate/1",
+          "folder": "donation"
+        }
+      ],
+      "options": {
+        "mode": "http",
+        "images": false,
+        "svg": false,
+        "metadata": true,
+        "screenshot": false,
+        "raw": false,
+        "timeoutMs": 20000,
+        "delayMs": 500,
+        "retries": 2,
+        "maxAssets": 100,
+        "allowedAssetHosts": [],
+        "excludeUrls": [
+          "google-analytics",
+          "googletagmanager",
+          "doubleclick",
+          "facebook.net"
+        ],
+        "removeSelectors": [],
+        "replacements": []
+      }
+    }
+  ]
+}

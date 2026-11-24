@@ -117,13 +117,14 @@ npm test
 npm run build
 npm run browser:install
 npm run test:browser
+npm run test:playwright
 npm run package
 npm run package:chrome
 ```
 
 On this Mac, Node 24's Homebrew executable has a missing `libsimdjson` dependency; `/opt/homebrew/opt/node@22/bin` is working. Put that directory first in PATH if needed.
 
-`npm test` runs unit and local integration tests, including real disposable Git repositories and loopback HTTP servers. `test:browser` launches an isolated headed Chromium profile, pre-grants only a synthetic fixture origin in a disposable test copy, and verifies the real Chrome extension's DOM sanitization, asset requests, pairing transfer, and JSON download. It does not alter your installed browser profile or connect to UNICEF. Chromium must be installed first. Close the test browser only after the test completes.
+`npm test` runs unit and local integration tests, including real disposable Git repositories and loopback HTTP servers. `npm run test:playwright` verifies rendered capture, CSS downloads, original HTML, screenshots, and blocked form submissions/fetch against a disposable local fixture. `test:browser` launches an isolated headed Chromium profile, pre-grants only a synthetic fixture origin in a disposable test copy, and verifies the real Chrome extension's DOM sanitization, asset requests, pairing transfer, and JSON download. It does not alter your installed browser profile or connect to UNICEF. Chromium must be installed first. Close the test browser only after the test completes.
 
 Press F5 in this source folder to open an Extension Development Host. `test/vscode-host.ts` is a separate installed-VS-Code smoke harness; it checks activation, contributed commands, sidebar invocation, bundled Prettier, and a native diff tab. Its `run` export is bundled into `dist/vscode-test.js` for `--extensionTestsPath`; set `WEBSOURCE_HOST_TEST_ROOT` to a writable temporary directory. This test harness is excluded from the VSIX.
 

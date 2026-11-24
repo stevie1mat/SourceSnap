@@ -1,0 +1,11 @@
+node_modules/**
+src/**
+shared/**
+chrome/**
+test/**
+scripts/**
+.vscode/**
+artifacts/**
+tsconfig.json
+package-lock.json
+dist/vscode-test.js
